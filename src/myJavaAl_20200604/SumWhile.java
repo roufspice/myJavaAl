@@ -31,6 +31,9 @@ public class SumWhile {
 		}
 		System.out.printf("%d 이상 %d 이하의 정수의 총합은: %d%n",b,a,sum);
 	}
+		
+		
+	
 
 }
 }
