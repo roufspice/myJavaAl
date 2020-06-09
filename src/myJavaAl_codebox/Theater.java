@@ -73,6 +73,63 @@ public class Theater {
 
 	}
 
+	public int cancel(String name) {
+		// 이름 name으로 예약된 자리를 취소하고, 취소된 좌석의 수를 리턴한다.
+		int seatsCount = 0;
+		// name으로 등록된 자리를 찾아야 한다! 있으면 해당 자리를 취소하고 없으면 패스!
+		// 검색부터!
+		for (int i = 0; i < rowCount; i++) {
+			for (int j = 0; j < colCount; j++) {
+				if (seats[i][j].getName() == name) { // 해당name으로 등록된 자리이면!
+					seats[i][j].cancel(); // 해당 name을 지운다.
+					seatsCount++; // 취소된 좌석의 수를 리턴한다.
+
+				}
+
+			}
+		}
+
+		return seatsCount;
+
+	}
+
+	public int cancel(char rowChar, int col, int numSeat) {
+		// 메소드 오버로딩, 파라미터로 받는 열, 행, 좌석 수에 해당되는 모든 좌석의 예약을 취소합니다.
+		int seatsCount = 0;
+		// 파라미터로 입력된 값으로 해당 인덱스를 찾아야함.
+		int rowCount = getRowIndex(rowChar);
+		for (int i = col-1; i < col + numSeat-1; i++) {
+			if (seats[rowCount][i].getName() != null) {
+				seats[rowCount][i].cancel(); // 예약된 이름이 있다면 취소하기
+				seatsCount++;
+			}
+
+		}
+
+		// t.cancel('G',3,4): G3부터 G6까지 네 자리중 G3, G4를 취소하고 2리턴!
+		return seatsCount;
+	}
+
+	
+	 public int getNumberOfReservedSeat() { //예약된 모든 좌석 수를 리턴하는 메소드입니다.
+		 int reservedSeats = 0;
+		 for(int i =0; i<rowCount; i++) {
+			 for(int j =0; j<colCount; j++) {
+				 if(seats[i][j].getName() !=null) {
+					 reservedSeats++;
+				 }
+			 }
+		 }
+		 
+		 
+		 return reservedSeats;
+		 
+	 }
+		 
+
+	 
+	 
+	 
 	private int getRowIndex(char uppercaseChar) {
 
 		return uppercaseChar - 'A';
