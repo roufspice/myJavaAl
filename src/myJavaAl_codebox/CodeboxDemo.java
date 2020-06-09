@@ -14,11 +14,13 @@ public class CodeboxDemo {
         System.out.println("A6부터 좌석 3개 취소: 총 " + t.cancel('A', 6, 3) + "개의 좌석이 취소되었습니다.");
         System.out.println("이윤수님의 좌석 취소: 총 " + t.cancel("이윤수") + "개의 좌석이 취소되었습니다.");
         
-        // 결과 출력
+        //결과 출력
         System.out.println();
         t.printSeatMatrix();
         System.out.println("총 " + t.getNumberOfReservedSeat() + "개의 좌석이 예약되었습니다.");
-  
+        t.printSeatMatrix();
+        t.printSeatMatrix();
+        t.printSeatMatrix();
         
         
         
