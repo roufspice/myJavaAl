@@ -65,11 +65,13 @@ public class GradeCaculator {
 
 	public void print() {
 		int expectedTotalCredits = getCredit() + numberOfGetCredits;
-		
+		//예상학점구하는 공식
+		double expectedTotalScore = (double)((scoreOfAverage*numberOfGetCredits) + (getScore()*getCredit())); 
+		double ets = expectedTotalScore / expectedTotalCredits;
 
 		System.out.printf("직전 학기 성적: %.1f (총 %d학점)%n", scoreOfAverage, numberOfGetCredits);
 		System.out.printf("이번 학기 성적: %.10f (총 %d학점)%n", getScore(), getCredit());
-		System.out.printf("전체 예상 학점: %.10f (총 %d학점)%n",0.0,expectedTotalCredits);
+		System.out.printf("전체 예상 학점: %.10f (총 %d학점)%n",ets,expectedTotalCredits);
 
 	}
 
